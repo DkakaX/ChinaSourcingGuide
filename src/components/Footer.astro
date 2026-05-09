@@ -1,0 +1,83 @@
+---
+import { SITE_TITLE } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <strong>{SITE_TITLE}</strong>
+      <p>Practical guides for sourcing products from China — written by people who've actually done it.</p>
+    </div>
+    <div class="footer-links">
+      <div>
+        <strong>Guides</strong>
+        <ul>
+          <li><a href="/guides/1688">1688 Guide</a></li>
+          <li><a href="/guides/alibaba">Alibaba Guide</a></li>
+          <li><a href="/guides/shipping">Shipping & Logistics</a></li>
+          <li><a href="/guides/markets">China Markets</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Site</strong>
+        <ul>
+          <li><a href="/blog">All Articles</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/disclaimer">Affiliate Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {year} {SITE_TITLE}. All rights reserved.</p>
+    <p class="disclosure">This site contains affiliate links. We may earn a commission when you make a purchase through our links, at no extra cost to you.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: #1e293b;
+    color: #94a3b8;
+    margin-top: 4rem;
+    padding: 3rem 1.5rem 2rem;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 3rem;
+  }
+  .footer-brand strong { color: #f1f5f9; font-size: 1.1rem; }
+  .footer-brand p { margin-top: 0.75rem; font-size: 0.9rem; line-height: 1.6; }
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .footer-links strong { color: #e2e8f0; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .footer-links ul { list-style: none; padding: 0; margin: 0.75rem 0 0; }
+  .footer-links li { margin: 0.5rem 0; }
+  .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; }
+  .footer-links a:hover { color: #f1f5f9; }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 2rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid #334155;
+    font-size: 0.85rem;
+  }
+  .disclosure { color: #64748b; font-size: 0.8rem; margin-top: 0.25rem; }
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-links { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>

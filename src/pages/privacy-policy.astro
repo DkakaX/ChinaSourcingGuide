@@ -1,0 +1,128 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+const updated = '2025-05-09';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title="Privacy Policy" description={`Privacy policy for ${SITE_TITLE}.`} />
+  </head>
+  <body>
+    <Header />
+    <main class="page-main">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: {updated}</p>
+
+      <p>
+        This Privacy Policy describes how {SITE_TITLE} ("we", "us", or "our") collects, uses,
+        and shares information when you visit our website.
+      </p>
+
+      <h2>Information We Collect</h2>
+      <p>
+        We collect information you voluntarily provide, such as your name and email address
+        when you submit our contact form. We do not require account registration to read
+        our content.
+      </p>
+
+      <h2>Cookies and Analytics</h2>
+      <p>
+        We use <strong>Google Analytics 4</strong> to understand how visitors interact with
+        our site (e.g., which pages are viewed, how long visitors stay). Google Analytics
+        uses cookies — small text files stored on your device. You can opt out of Google
+        Analytics by installing the
+        <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">
+          Google Analytics Opt-out Browser Add-on
+        </a>.
+      </p>
+
+      <h2>Advertising</h2>
+      <p>
+        We use <strong>Google AdSense</strong> to display advertisements on our site.
+        Google AdSense uses cookies to serve ads based on your prior visits to this and
+        other websites. You can opt out of personalized advertising by visiting
+        <a href="https://www.google.com/settings/ads" rel="noopener noreferrer" target="_blank">
+          Google's Ads Settings
+        </a>.
+        Third-party vendors, including Google, use cookies to serve ads based on a user's
+        prior visits to websites. Google's use of advertising cookies enables it and its
+        partners to serve ads based on visits to our site and/or other sites on the Internet.
+      </p>
+
+      <h2>Affiliate Links</h2>
+      <p>
+        Some links on this site are affiliate links. If you click an affiliate link and
+        make a purchase, we may receive a commission. Clicking affiliate links does not
+        place additional cookies on your device beyond what the destination website sets.
+        See our <a href="/disclaimer">Affiliate Disclaimer</a> for full details.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        Our site may use the following third-party services, each with their own privacy policies:
+      </p>
+      <ul>
+        <li>Google Analytics — <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a></li>
+        <li>Google AdSense — <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a></li>
+        <li>Netlify (site hosting) — <a href="https://www.netlify.com/privacy/" rel="noopener noreferrer" target="_blank">Netlify Privacy Policy</a></li>
+      </ul>
+
+      <h2>How We Use Your Information</h2>
+      <p>We use collected information to:</p>
+      <ul>
+        <li>Respond to contact form submissions</li>
+        <li>Analyze site traffic and improve our content</li>
+        <li>Display relevant advertisements</li>
+      </ul>
+
+      <h2>Data Retention</h2>
+      <p>
+        Contact form submissions are retained for up to 12 months. Analytics data is
+        retained according to Google's standard retention settings.
+      </p>
+
+      <h2>Your Rights</h2>
+      <p>
+        Depending on your location, you may have rights under GDPR, CCPA, or other
+        privacy laws to access, correct, or delete your personal data. To exercise
+        these rights, contact us at <strong>hello@chinasourcehub.com</strong>.
+      </p>
+
+      <h2>Children's Privacy</h2>
+      <p>
+        Our site is not directed at children under 13. We do not knowingly collect
+        personal information from children.
+      </p>
+
+      <h2>Changes to This Policy</h2>
+      <p>
+        We may update this policy periodically. Changes will be posted on this page
+        with a revised "last updated" date.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy? Email us at <strong>hello@chinasourcehub.com</strong>
+        or use our <a href="/contact">contact form</a>.
+      </p>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-main {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+  h1 { font-size: 2rem; color: #0f172a; margin-bottom: 0.5rem; }
+  .updated { color: #94a3b8; font-size: 0.85rem; margin-bottom: 2rem; }
+  h2 { font-size: 1.2rem; color: #1e293b; margin: 2rem 0 0.6rem; padding-bottom: 0.3rem; border-bottom: 1px solid #e2e8f0; }
+  p { color: #374151; line-height: 1.75; margin-bottom: 1rem; }
+  ul { color: #374151; line-height: 1.9; padding-left: 1.5rem; margin-bottom: 1rem; }
+  a { color: #1d4ed8; }
+</style>

@@ -1,0 +1,112 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title="About Us"
+      description="China Source Hub was built by people who've spent years sourcing products from China — learning the hard way what works and what doesn't."
+    />
+  </head>
+  <body>
+    <Header />
+    <main class="page-main">
+      <h1>About China Source Hub</h1>
+
+      <p class="lead">
+        We've been importing products from China since 2018 — sourcing through 1688, Alibaba, and
+        in-person at markets like Yiwu and Canton Fair. This site exists because most English guides
+        on China sourcing are written by people who've never actually done it.
+      </p>
+
+      <h2>What We've Actually Done</h2>
+      <p>
+        Over the years we've sourced across several product categories — from consumer electronics
+        accessories and home goods to packaging materials and promotional items. We've worked
+        directly with factories in Guangzhou, Shenzhen, and Yiwu; navigated quality control
+        problems; dealt with shipping delays and customs issues; and learned the hard way which
+        supplier red flags to take seriously.
+      </p>
+      <p>
+        We know what it's like to wire money to a factory and hold your breath waiting for samples.
+        We know the difference between a Gold Supplier badge that means something and one that
+        doesn't. We've walked the 1688 warehouse districts at 7am and negotiated MOQ in Mandarin
+        with a calculator app.
+      </p>
+
+      <h2>Why We Built This Site</h2>
+      <p>
+        When we started sourcing from China, the English-language guides were either too generic
+        ("just search on Alibaba!") or outdated. The practical details — how to actually pay a
+        1688 supplier from overseas, what to do when a factory sends you the wrong samples, how
+        to read a Chinese shipping contract — were scattered across Reddit threads and YouTube
+        comments.
+      </p>
+      <p>
+        {SITE_TITLE} is the resource we wish existed when we started. Every article is based on
+        direct experience, not research-from-a-desk.
+      </p>
+
+      <h2>What You'll Find Here</h2>
+      <ul>
+        <li><strong>1688 guides</strong> — how to use China's biggest B2B platform as a foreign buyer</li>
+        <li><strong>Alibaba guides</strong> — supplier vetting, sampling, negotiation, Trade Assurance</li>
+        <li><strong>Shipping &amp; logistics</strong> — Incoterms, freight forwarders, FBA prep</li>
+        <li><strong>China market guides</strong> — Yiwu, Canton Fair, Guangzhou, Shenzhen Huaqiangbei</li>
+      </ul>
+
+      <h2>Our Approach</h2>
+      <p>
+        We don't sugarcoat things. Sourcing from China has real risks and real frustrations.
+        We'll tell you what can go wrong, not just what the best-case scenario looks like.
+        When we recommend a tool or service, it's because we've used it ourselves.
+      </p>
+
+      <div class="contact-cta">
+        <p>Have a question about sourcing from China? <a href="/contact">Get in touch</a> — we read every message.</p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-main {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+  h1 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+  }
+  h2 {
+    font-size: 1.35rem;
+    color: #1e293b;
+    margin: 2rem 0 0.75rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: #334155;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+  p { color: #374151; line-height: 1.75; margin-bottom: 1rem; }
+  ul { color: #374151; line-height: 1.9; padding-left: 1.5rem; }
+  .contact-cta {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .contact-cta p { margin: 0; }
+  .contact-cta a { color: #0369a1; font-weight: 600; }
+</style>

@@ -1,0 +1,274 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 6);
+
+const featured = posts.filter(p => p.data.featured).slice(0, 3);
+const recent = posts.filter(p => !p.data.featured).slice(0, 6);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Your Practical Guide to Sourcing from China</h1>
+        <p>
+          1688, Alibaba, Yiwu market, Canton Fair — written by people who've actually done it.
+          No fluff, no secondhand tips, no "just Google it."
+        </p>
+        <div class="hero-cta">
+          <a href="/guides/1688" class="btn-primary">Start with 1688</a>
+          <a href="/blog" class="btn-secondary">Browse All Guides</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Topic Cards -->
+    <section class="topics">
+      <div class="topics-inner">
+        <h2>What Do You Want to Learn?</h2>
+        <div class="topic-grid">
+          <a href="/guides/1688" class="topic-card">
+            <span class="topic-icon">🏭</span>
+            <strong>1688 Guide</strong>
+            <p>How to buy from China's biggest wholesale platform without speaking Chinese.</p>
+          </a>
+          <a href="/guides/alibaba" class="topic-card">
+            <span class="topic-icon">📦</span>
+            <strong>Alibaba Guide</strong>
+            <p>Find verified suppliers, negotiate MOQ, order samples, and use Trade Assurance.</p>
+          </a>
+          <a href="/guides/shipping" class="topic-card">
+            <span class="topic-icon">🚢</span>
+            <strong>Shipping &amp; Logistics</strong>
+            <p>Incoterms explained, freight forwarders, FBA shipping from China.</p>
+          </a>
+          <a href="/guides/markets" class="topic-card">
+            <span class="topic-icon">🏪</span>
+            <strong>China Markets</strong>
+            <p>Yiwu, Canton Fair, Guangzhou, Shenzhen — insider guides to physical markets.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Articles -->
+    {featured.length > 0 && (
+      <section class="featured-posts">
+        <div class="section-inner">
+          <h2>Featured Guides</h2>
+          <div class="post-grid">
+            {featured.map(post => (
+              <a href={`/blog/${post.id}`} class="post-card featured-card">
+                {post.data.category && <span class="card-category">{post.data.category}</span>}
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Recent Articles -->
+    <section class="recent-posts">
+      <div class="section-inner">
+        <h2>Latest Guides</h2>
+        <div class="post-list">
+          {(recent.length > 0 ? recent : posts).map(post => (
+            <a href={`/blog/${post.id}`} class="post-list-item">
+              <div class="post-list-meta">
+                {post.data.category && <span class="tag">{post.data.category}</span>}
+                <span class="date"><FormattedDate date={post.data.pubDate} /></span>
+              </div>
+              <h3>{post.data.title}</h3>
+              <p>{post.data.description}</p>
+            </a>
+          ))}
+        </div>
+        <a href="/blog" class="view-all">View all articles →</a>
+      </div>
+    </section>
+
+    <!-- Trust bar -->
+    <section class="trust-bar">
+      <div class="trust-inner">
+        <div class="trust-item">
+          <strong>Real Experience</strong>
+          <span>Sourcing from China since 2018</span>
+        </div>
+        <div class="trust-item">
+          <strong>No Fluff</strong>
+          <span>Practical guides, not theory</span>
+        </div>
+        <div class="trust-item">
+          <strong>Up to Date</strong>
+          <span>Regularly reviewed &amp; updated</span>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+    color: #fff;
+    padding: 5rem 1.5rem;
+    text-align: center;
+  }
+  .hero-inner { max-width: 720px; margin: 0 auto; }
+  .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 1rem; color: #fff; }
+  .hero p { font-size: 1.15rem; color: #bfdbfe; line-height: 1.7; margin-bottom: 2rem; }
+  .hero-cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn-primary {
+    background: #fff;
+    color: #1d4ed8;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn-primary:hover { opacity: 0.9; }
+  .btn-secondary {
+    border: 2px solid rgba(255,255,255,0.5);
+    color: #fff;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: border-color 0.15s;
+  }
+  .btn-secondary:hover { border-color: #fff; }
+
+  /* Topics */
+  .topics { padding: 4rem 1.5rem; background: #f8fafc; }
+  .topics-inner { max-width: 1100px; margin: 0 auto; }
+  .topics h2 { font-size: 1.75rem; color: #0f172a; text-align: center; margin-bottom: 2rem; }
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .topic-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .topic-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .topic-icon { font-size: 2rem; display: block; margin-bottom: 0.75rem; }
+  .topic-card strong { display: block; color: #0f172a; font-size: 1rem; margin-bottom: 0.5rem; }
+  .topic-card p { color: #64748b; font-size: 0.875rem; line-height: 1.6; margin: 0; }
+
+  /* Posts sections */
+  .featured-posts, .recent-posts { padding: 3.5rem 1.5rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  section h2 { font-size: 1.6rem; color: #0f172a; margin-bottom: 1.75rem; }
+  .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .post-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    transition: box-shadow 0.15s;
+    display: flex;
+    flex-direction: column;
+  }
+  .post-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .card-category {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    align-self: flex-start;
+  }
+  .post-card h3 { color: #0f172a; font-size: 1rem; margin: 0 0 0.5rem; line-height: 1.4; }
+  .post-card p { color: #64748b; font-size: 0.875rem; line-height: 1.6; margin: 0 0 0.75rem; flex: 1; }
+  .card-date { color: #94a3b8; font-size: 0.8rem; }
+
+  /* Post list */
+  .post-list { display: flex; flex-direction: column; gap: 0; }
+  .post-list-item {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #f1f5f9;
+    text-decoration: none;
+    display: block;
+    transition: background 0.1s;
+  }
+  .post-list-item:hover { background: #fafafa; }
+  .post-list-meta { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+  .tag {
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  .date { color: #94a3b8; font-size: 0.8rem; }
+  .post-list-item h3 { color: #0f172a; font-size: 1rem; margin: 0 0 0.3rem; }
+  .post-list-item p { color: #64748b; font-size: 0.875rem; margin: 0; line-height: 1.5; }
+  .view-all {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: #1d4ed8;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .view-all:hover { text-decoration: underline; }
+
+  /* Trust bar */
+  .trust-bar { background: #0f172a; padding: 2.5rem 1.5rem; }
+  .trust-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    text-align: center;
+  }
+  .trust-item strong { display: block; color: #f1f5f9; font-size: 1rem; margin-bottom: 0.25rem; }
+  .trust-item span { color: #64748b; font-size: 0.875rem; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .topic-grid { grid-template-columns: repeat(2, 1fr); }
+    .post-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 1.75rem; }
+    .topic-grid { grid-template-columns: 1fr; }
+    .post-grid { grid-template-columns: 1fr; }
+    .trust-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+    .hero-cta { flex-direction: column; align-items: center; }
+  }
+</style>

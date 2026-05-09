@@ -1,0 +1,87 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+
+export async function getStaticPaths() {
+  return [
+    { params: { guide: '1688' },    props: { title: '1688 Guide',            category: '1688 Guide',    description: 'How to buy from 1688.com as a foreign buyer — registration, payment, finding suppliers, and using sourcing agents.' } },
+    { params: { guide: 'alibaba' }, props: { title: 'Alibaba Guide',         category: 'Alibaba',       description: 'How to source from Alibaba — finding suppliers, verifying factories, Trade Assurance, samples, and negotiation.' } },
+    { params: { guide: 'shipping' }, props: { title: 'Shipping & Logistics', category: 'Shipping',      description: 'Shipping from China explained — Incoterms, freight forwarders, FBA prep, and what to do when things go wrong.' } },
+    { params: { guide: 'markets' }, props: { title: 'China Markets',         category: 'China Markets', description: 'In-person sourcing from Yiwu, Canton Fair, Guangzhou wholesale markets, and Shenzhen Huaqiangbei.' } },
+  ];
+}
+
+const { title, category, description } = Astro.props;
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter(p => p.data.category === category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <Header />
+    <main class="page-main">
+      <div class="page-header">
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </div>
+
+      {posts.length > 0 ? (
+        <div class="article-grid">
+          {posts.map(post => (
+            <a href={`/blog/${post.id}`} class="article-card">
+              <h2>{post.data.title}</h2>
+              <p>{post.data.description}</p>
+              <span class="card-date"><FormattedDate date={post.data.pubDate} /></span>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="coming-soon">
+          <p>Guides in this category are coming soon. <a href="/blog">Browse all articles</a> in the meantime.</p>
+        </div>
+      )}
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-main { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem 4rem; }
+  .page-header { margin-bottom: 2.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 1.5rem; }
+  .page-header h1 { font-size: 2rem; color: #0f172a; margin-bottom: 0.5rem; }
+  .page-header p { color: #64748b; line-height: 1.7; max-width: 680px; margin: 0; }
+  .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .article-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .article-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .article-card h2 { font-size: 1rem; color: #0f172a; margin: 0 0 0.5rem; line-height: 1.4; }
+  .article-card p { color: #64748b; font-size: 0.875rem; line-height: 1.6; margin: 0; flex: 1; }
+  .card-date { color: #94a3b8; font-size: 0.8rem; margin-top: 1rem; }
+  .coming-soon {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 2rem;
+    color: #64748b;
+    text-align: center;
+  }
+  .coming-soon a { color: #1d4ed8; }
+  @media (max-width: 1024px) { .article-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .article-grid { grid-template-columns: 1fr; } }
+</style>

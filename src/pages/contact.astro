@@ -1,0 +1,122 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Contact Us"
+      description="Have a question about sourcing from China? Get in touch with the China Source Hub team."
+    />
+  </head>
+  <body>
+    <Header />
+    <main class="page-main">
+      <h1>Contact Us</h1>
+      <p class="lead">
+        Have a question about sourcing from China, a topic you'd like us to cover, or spotted
+        something inaccurate in one of our guides? We'd love to hear from you.
+      </p>
+
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="contact-form"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="sr-only">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="e.g. Sarah Chen" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option value="question">Question about sourcing from China</option>
+            <option value="content">Content suggestion</option>
+            <option value="correction">Correction / inaccuracy</option>
+            <option value="partnership">Partnership / advertising</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Tell us what's on your mind..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+
+      <div class="alt-contact">
+        <p>Prefer email? Reach us directly at <strong>hello@chinasourcehub.com</strong></p>
+        <p>We typically respond within 1–2 business days.</p>
+      </div>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .page-main {
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+  }
+  h1 { font-size: 2rem; color: #0f172a; margin-bottom: 1rem; }
+  .lead { color: #334155; line-height: 1.75; margin-bottom: 2rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  label { font-weight: 600; font-size: 0.9rem; color: #374151; }
+  input, select, textarea {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 0.65rem 0.9rem;
+    font-size: 1rem;
+    color: #111827;
+    transition: border-color 0.15s;
+    font-family: inherit;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+  }
+  textarea { resize: vertical; }
+  .submit-btn {
+    background: #1d4ed8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+    align-self: flex-start;
+  }
+  .submit-btn:hover { background: #1e40af; }
+  .alt-contact {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.5rem;
+    background: #f8fafc;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    color: #475569;
+  }
+  .alt-contact p { margin: 0.25rem 0; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+</style>

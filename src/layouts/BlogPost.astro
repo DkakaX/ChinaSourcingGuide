@@ -1,0 +1,163 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
+import AuthorBox from '../components/AuthorBox.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} type="article" />
+  </head>
+  <body>
+    <Header />
+    <main class="post-main">
+      <article class="post-article">
+        <!-- Hero Image -->
+        {heroImage && (
+          <div class="hero-image">
+            <Image width={1020} height={510} src={heroImage} alt={title} />
+          </div>
+        )}
+
+        <!-- Article Header -->
+        <header class="post-header">
+          {category && <span class="category-badge">{category}</span>}
+          <h1>{title}</h1>
+          <div class="post-meta">
+            <FormattedDate date={pubDate} />
+            {updatedDate && (
+              <span class="updated">· Updated <FormattedDate date={updatedDate} /></span>
+            )}
+          </div>
+        </header>
+
+        <!-- Affiliate Disclosure -->
+        <AffiliateDisclosure />
+
+        <!-- Ad placeholder: top of article (activate after AdSense approval) -->
+        <!-- <div class="ad-unit ad-top" aria-label="Advertisement"></div> -->
+
+        <!-- Article Body -->
+        <div class="prose">
+          <slot />
+        </div>
+
+        <!-- Ad placeholder: bottom of article -->
+        <!-- <div class="ad-unit ad-bottom" aria-label="Advertisement"></div> -->
+
+        <!-- Author Box -->
+        <AuthorBox />
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .post-main {
+    max-width: 780px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+  }
+  .hero-image {
+    margin-bottom: 2rem;
+  }
+  .hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+  .post-header {
+    margin-bottom: 1.5rem;
+  }
+  .category-badge {
+    display: inline-block;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+  .post-header h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+    color: #0f172a;
+    margin: 0.5rem 0 0.75rem;
+  }
+  .post-meta {
+    color: #64748b;
+    font-size: 0.9rem;
+  }
+  .updated { color: #94a3b8; }
+  .prose {
+    color: #1e293b;
+    line-height: 1.75;
+  }
+  .prose :global(h2) {
+    font-size: 1.5rem;
+    margin: 2.5rem 0 1rem;
+    color: #0f172a;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  .prose :global(h3) {
+    font-size: 1.2rem;
+    margin: 2rem 0 0.75rem;
+    color: #1e293b;
+  }
+  .prose :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 1.5rem 0;
+  }
+  .prose :global(th) {
+    background: #f1f5f9;
+    padding: 0.6rem 0.8rem;
+    text-align: left;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+  }
+  .prose :global(td) {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #e2e8f0;
+  }
+  .prose :global(tr:nth-child(even) td) { background: #f8fafc; }
+  .prose :global(blockquote) {
+    background: #f0f9ff;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.25rem;
+    border-radius: 0 8px 8px 0;
+    color: #1e40af;
+    font-style: normal;
+    margin: 1.5rem 0;
+  }
+  .ad-unit {
+    min-height: 90px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    font-size: 0.8rem;
+  }
+  @media (max-width: 640px) {
+    .post-header h1 { font-size: 1.6rem; }
+  }
+</style>
