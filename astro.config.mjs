@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chinasourcehub.com',
+  site: 'https://china-sourcing-guide-or41e8j6w-dkakaxs-projects.vercel.app',
   integrations: [
     mdx(),
     sitemap({
