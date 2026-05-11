@@ -1,21 +1,48 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_TITLE } from '../consts';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & { slug?: string };
 
 const { title, description, pubDate, updatedDate, heroImage, category } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageURL = heroImage
+  ? new URL(heroImage.src, Astro.site)
+  : new URL('/blog-placeholder-1.jpg', Astro.site);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate ?? pubDate).toISOString(),
+  author: { '@type': 'Organization', name: SITE_AUTHOR, url: Astro.site },
+  publisher: { '@type': 'Organization', name: SITE_TITLE, url: Astro.site },
+  url: canonicalURL,
+  image: imageURL,
+};
+
+const allPosts = await getCollection('blog');
+const related = allPosts
+  .filter(p => p.data.category === category && p.data.title !== title)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} type="article" />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
   </head>
   <body>
     <Header />
@@ -56,6 +83,22 @@ const { title, description, pubDate, updatedDate, heroImage, category } = Astro.
 
         <!-- Author Box -->
         <AuthorBox />
+
+        <!-- Related Articles -->
+        {related.length > 0 && (
+          <aside class="related-posts">
+            <h2>Related Guides</h2>
+            <div class="related-grid">
+              {related.map(post => (
+                <a href={`/blog/${post.id}`} class="related-card">
+                  {post.data.category && <span class="related-category">{post.data.category}</span>}
+                  <h3>{post.data.title}</h3>
+                  <p>{post.data.description}</p>
+                </a>
+              ))}
+            </div>
+          </aside>
+        )}
       </article>
     </main>
     <Footer />
@@ -157,7 +200,56 @@ const { title, description, pubDate, updatedDate, heroImage, category } = Astro.
     color: #94a3b8;
     font-size: 0.8rem;
   }
+  .related-posts {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e2e8f0;
+  }
+  .related-posts h2 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin-bottom: 1.25rem;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .related-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1.25rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .related-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+  .related-category {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #1d4ed8;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .related-card h3 {
+    font-size: 0.9rem;
+    color: #0f172a;
+    margin: 0 0 0.4rem;
+    line-height: 1.4;
+  }
+  .related-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+    flex: 1;
+  }
   @media (max-width: 640px) {
     .post-header h1 { font-size: 1.6rem; }
+    .related-grid { grid-template-columns: 1fr; }
   }
 </style>
