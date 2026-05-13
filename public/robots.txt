@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /go/
 
-Sitemap: https://chinasourcehub.com/sitemap-index.xml
+Sitemap: https://china-sourcing-guide.vercel.app/sitemap-index.xml
