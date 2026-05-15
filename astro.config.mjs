@@ -1,20 +1,24 @@
 // @ts-check
 
+
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { defineConfig, fontProviders } from 'astro/config';
 
+
 import tailwindcss from '@tailwindcss/vite';
+
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://china-sourcing-guide.vercel.app',
+  site: 'https://www.chinamarketguide.club',
   integrations: [
     mdx(),
     sitemap({
       filter: (page) => !page.includes('/go/'),
     }),
   ],
+
 
   fonts: [
       {
@@ -34,14 +38,3 @@ export default defineConfig({
                       src: ['./src/assets/fonts/atkinson-bold.woff'],
                       weight: 700,
                       style: 'normal',
-                      display: 'swap',
-                  },
-              ],
-          },
-      },
-	],
-
-  vite: {
-    plugins: [tailwindcss()],
-  },
-});
