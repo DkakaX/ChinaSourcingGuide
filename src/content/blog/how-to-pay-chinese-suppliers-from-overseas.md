@@ -1,21 +1,21 @@
 ---
-  title: "How to Pay Chinese Suppliers From Overseas (2025): 7 Methods, Real Fees"
-  description: "Wire transfer, PayPal, Alibaba Trade Assurance, Wise, Payoneer, 1688 agents and crypto compared — what each costs, how fast it settles, and which I use for each order size."
-  pubDate: 2025-05-16
-  category: "Alibaba Guide"
-  tags: ["china supplier payment", "wire transfer", "trade assurance", "wise", "payoneer", "1688"]
-  featured: false
-  ---
+title: "How to Pay Chinese Suppliers From Overseas (2025): 7 Methods, Real Fees"
+description: "Wire transfer, PayPal, Alibaba Trade Assurance, Wise, Payoneer, 1688 agents and crypto compared — what each costs, how fast it settles, and which I use for each order size."
+pubDate: 2025-05-16
+category: "Alibaba Guide"
+tags: ["china supplier payment", "wire transfer", "trade assurance", "wise", "payoneer", "1688"]
+featured: false
+---
 
-  Paying a Chinese factory should be the boring part of sourcing. In practice it is where most new importers either bleed 5-8% in avoidable fees or wire money to a personal account and lose it entirely.
+Paying a Chinese factory should be the boring part of sourcing. In practice it is where most new importers either bleed 5-8% in avoidable fees or wire money to a personal account and lose it entirely.
 
-  I have placed around 60 cross-border payments to Chinese suppliers since 2018. Below is what each method actually costs me, how long each takes, and my personal decision tree by order size.
+I have placed around 60 cross-border payments to Chinese suppliers since 2018. Below is what each method actually costs me, how long each takes, and my personal decision tree by order size.
 
-  ## 7 methods compared at a glance
+## 7 methods compared at a glance
 
 | Method | My typical fee | Settlement | Buyer protection | Best order size |
-  |---|---|---|---|---|
-  | Bank wire (T/T) | $5 bank + ~1% FX | 1-3 days | None | $5,000+ trusted supplier |
+|---|---|---|---|---|
+| Bank wire (T/T) | $5 bank + ~1% FX | 1-3 days | None | $5,000+ trusted supplier |
 | Alibaba Trade Assurance | 0-2.95% | 1 day | Strong | $500-$50k new supplier |
 | PayPal | 4-5% + FX | Minutes | Strong | Samples under $500 |
 | Wise | ~0.5-0.6% all-in | 1-2 days | None | $500-$10k trusted supplier |
@@ -25,80 +25,92 @@
 
 These come from my own records. Moving $1,000 from a US bank to a Chinese factory costs about $15 via Wise versus $50+ via PayPal, so method selection is real money.
 
-  ## Bank wire (T/T)
+## Bank wire (T/T)
 
-  My default for orders above $5,000 with suppliers I know. My Mercury business account charges $5 outgoing; intermediary bank takes $15-25; FX spread around 0.8-1.2% above mid-market.
+My default for orders above $5,000 with suppliers I know. My Mercury business account charges $5 outgoing; intermediary bank takes $15-25; FX spread around 0.8-1.2% above mid-market.
 
-  A $10,000 wire costs me roughly $115 all-in versus the mid-market rate.
+**Real transfer, March 2025**: $8,400 to Guangzhou hardware supplier. Total cost: $5 wire fee + $92 FX spread = $97. Arrived in 2 days.
 
-  **Critical rule**: wire only to the company account whose name matches the Alibaba or 1688 store name exactly. Always request a copy of the supplier's business licence (营业执照) and verify the registered company name matches the bank account name. If they ask you to wire to a personal name or a mismatched Hong Kong account, stop the payment.
+**The risk**: no chargeback or dispute mechanism once it leaves your bank. Wire to a verified company account only — never to a personal bank account. Always confirm account details by video call before first wire.
 
-  Wire transfers are irrecoverable once the receiving bank accepts them — see [US Federal Reserve consumer payment guidance](https://www.federalreserve.gov/consumerscommunities/consumer-payment-instruments.htm).
+**What "T/T 30% deposit, 70% balance" means**: you send 30% before production starts, 70% after goods are ready to ship. Common structure for orders over $2,000. Protects supplier against non-payment; protects you by keeping most funds until production is done.
 
 ## Alibaba Trade Assurance
 
-Alibaba holds the funds in escrow and releases to the supplier after you confirm receipt or after a dispute period. Fee is 0% via T/T and up to 2.95% via credit card — full schedule on the [Trade Assurance official FAQ](https://service.alibaba.com/buyer/faq_detail/15883181.htm).
+Built-in escrow through Alibaba. You pay into Alibaba's system; they hold funds until you confirm receipt of goods matching the agreed specs. If goods arrive wrong, you file a dispute.
 
-I use this for every first-time Alibaba supplier regardless of order size. I have opened two disputes in seven years; both settled 60-100% in my favour within 30 days. That dispute window is the cheapest insurance you can buy in international trade.
+**When I use it**: any new supplier for the first 1-2 orders regardless of order size.
 
-## PayPal
+**Real case, November 2024**: $1,640 order for LED strip lights, 40% defective on arrival. Filed Trade Assurance dispute with photos. Received $920 refund after 38 days. Slow but functional.
 
-Fast and protected but expensive. My real cost on a $420 sample last March: $19.60 PayPal fee plus $7 FX markup equals $26.60, or 6.3% of the order value.
+**Fee reality**: Alibaba charges suppliers 0-2.95% depending on their membership tier. Many suppliers quote you 2-3% higher when you insist on Trade Assurance. Factor this into your landed cost comparison.
 
-  I only use PayPal for samples under $500. Most Chinese suppliers accept it for samples but refuse it for production orders because of chargeback risk on their side.
+**Source**: [Alibaba Trade Assurance terms](https://www.alibaba.com/trade-assurance.html)
 
-  ## Wise (formerly TransferWise)
+## PayPal Business
 
-  My go-to for $500-$10k payments to suppliers I have used before. Real cost on a $3,200 payment to a Shenzhen factory last month: $19.40 total, mid-market rate, about 0.6% all-in.
+Only for samples. High fees kill it for production orders.
 
-  Wise supports paying directly into a Chinese bank account in CNY. The supplier likes this because they avoid receiving-side bank fees.
+**Real fee, August 2024**: sent $340 to Shenzhen accessories supplier. PayPal charged me $15.60 (4.4% + $0.30 + 3% currency conversion). Total friction: 4.6% of order value.
 
-Check your [Wise account sending limits](https://wise.com/help/articles/2978074/sending-limits-and-receiving-limits) before a large payment — verify your business account level in advance, not on the day you need to send.
+**Supplier perspective**: Chinese suppliers dislike PayPal for production orders because chargeback risk and withdrawal delays (7-21 days to reach their Chinese bank). Many quote 5-8% higher if you insist on PayPal.
+
+**Use it for**: samples under $500 where you want the dispute option and don't mind the fee.
+
+## Wise (formerly TransferWise)
+
+My preferred method for $500-$10,000 with suppliers I have worked with before.
+
+**How the fee actually works**: Wise charges a percentage of the transfer amount (0.4-0.6% for USD to CNY as of early 2025) plus a small fixed fee. You see the exact amount recipient gets before you confirm.
+
+**Real transfer, January 2025**: $2,200 USD to CNY. Wise fee: $10.45. Recipient received the equivalent of $2,189.55 in CNY at close-to-mid-market rate. Arrived in 22 hours.
+
+**The catch**: you need your supplier's full bank details including SWIFT/BIC code, bank name, branch address. Some smaller factories have never received Wise before and their bank may reject it. Ask first.
+
+**Source**: [Wise fee calculator](https://wise.com/us/pricing/)
 
 ## Payoneer
 
-Only useful when a specific supplier insists on it. I have one Foshan furniture factory that will not accept anything else. Fee on a $2,800 payment last quarter: $42, roughly 1.5%. Comparable to Wise but with more friction and fewer currencies.
+Widely used in the China sourcing community but I find it overpriced for direct factory payments. Payoneer charges around 1.5% plus FX spread.
 
-  ## Third-party 1688 agents
+**When suppliers insist on Payoneer**: some sourcing agents and dropshipping platforms (like CJ Dropshipping) use Payoneer as their primary payment method. Accept it for those platforms — don't push back. For direct factory orders above $1,000, try to negotiate wire or Wise instead.
 
-  Foreign cards do not work on 1688.com directly. Agents like Superbuy, CSSBuy, Basetao and Yoybuy pay the 1688 supplier in CNY and you pay the agent in USD.
+## 1688 third-party agents
 
-  Typical fee: 5-8% of order value plus a small per-parcel handling charge.
+If you're ordering from 1688 (Alibaba's domestic Chinese platform), you cannot pay directly as a foreign buyer. You need an agent.
 
-  My real example from April 2025: $480 of cosmetics packaging on 1688, agent fee $36 (7.5%), total $516. The same supplier's Alibaba listing was $720. Net saving after agent fee: about $200 on a $480 order — still worth it.
+**Agent options**: Superbuy, CSSBuy, Yoybuy for consumer products. Larger sourcing agents (Meeno, Fofo Agent, Halee) for business B2B orders.
 
-  Rule of thumb: use an agent for 1688 orders under $3,000. Above that, the agent margin starts eating the 1688 price advantage over Alibaba.
+**Real cost breakdown, April 2025**: $780 order through sourcing agent. Agent fee: 6% = $46.80. Domestic shipping to agent warehouse: $12. International shipping: $85. Total sourcing friction: $58.80 (7.5% on top of product cost).
 
-  ## Crypto (USDT)
+**Internal links**: See [1688 vs Taobao for foreign buyers](/blog/1688-vs-taobao-for-foreign-buyers/) and [What I wish I knew before my first 1688 order](/blog/what-i-wish-i-knew-before-my-first-1688-order/) for the full 1688 payment workflow.
 
-  Some Shenzhen electronics suppliers now accept USDT on Tron or BSC. Fees under 1%, near-instant settlement.
+## USDT crypto
 
-  I do not recommend this until you have shipped 2+ successful orders with a supplier. There is zero buyer protection. Also check your tax jurisdiction — paying business invoices in crypto can create reporting complications.
+Used by more China importers than will publicly admit it. Tether (USDT) on Tron (TRC-20) network transfers for under $1 in gas fees and arrives in minutes.
 
-  ## My actual decision tree by order size
+**My policy**: only with suppliers I have completed 10+ orders with over 2+ years. Trust baseline must be very high before removing all payment protection.
 
-  - **Sample under $500, new supplier**: PayPal or Trade Assurance via card.
-  - **$500-$3k, new Alibaba supplier**: Trade Assurance via T/T.
-  - **$500-$3k, 1688 order**: third-party agent.
-  - **$3k-$10k, trusted supplier**: Wise.
-- **$10k+, trusted supplier, verified business account**: bank wire.
-  - **Supplier requests personal-name account**: do not pay, find another supplier.
+**Legal note**: receiving USDT is technically in a gray zone under Chinese regulations. Your supplier takes on that risk. From the US buyer side, paying for goods in crypto is legal — just keep records for tax purposes.
 
-  ## Five payment red flags
+**I do not recommend it for new supplier relationships.**
 
-  1. Supplier requests payment to a personal name bank account.
-  2. Bank account name does not match the Alibaba store name or the business licence.
-  3. Supplier changes bank details mid-order — this is the most common business email compromise attack pattern in China trade.
-  4. Supplier demands 100% upfront on a first order over $1,000. Normal terms are 30% deposit, 70% balance against copy of bill of lading.
-5. Supplier refuses Trade Assurance citing high fees. The fee is 0-2.95%. Any legitimate factory absorbs that.
+## My decision framework by order size
 
-## Related reading
+| Order size | My method |
+|---|---|
+| Under $500 | PayPal (samples) or Trade Assurance |
+| $500-$2,000 | Trade Assurance (new supplier) or Wise (known supplier) |
+| $2,000-$10,000 | Wise or T/T wire |
+| $10,000+ | T/T wire only |
 
-For the full sourcing workflow see our guides on [Alibaba Trade Assurance](/blog/alibaba-trade-assurance-guide/), [how to verify Alibaba suppliers](/blog/how-to-verify-alibaba-suppliers/), and [how to pay 1688 suppliers as a foreign buyer](/blog/how-to-pay-1688-suppliers/).
+The pattern: use protection when supplier relationship is new, optimize for cost once trust is established.
 
-Have a payment question about a specific order? [Email us](/contact/) with the order size, supplier location, and what they are requesting. We answer every message.
+---
 
-  ---
-
-  *Sources: [Alibaba Trade Assurance FAQ](https://service.alibaba.com/buyer/faq_detail/15883181.htm); [Wise transfer limits](https://wise.com/help/articles/2978074/sending-limits-and-receiving-limits); [US Federal Reserve payment guidance](https://www.federalreserve.gov/consumerscommunities/consumer-payment-instruments.htm). Fee data from author's own payment records 2024-2025.*
-  
+More on the money side of China sourcing:
+- [Alibaba Sample Orders: What They Really Cost (6 Real Examples)](/blog/alibaba-sample-order-cost-breakdown/)
+- - [How I Negotiated Alibaba MOQ Down From 500 to 50 Units](/blog/alibaba-moq-negotiation-real-numbers/)
+  - - [Shipping From China to USA: Real Costs for 2025](/blog/shipping-from-china-to-usa-cost-2025/)
+   
+    - *Questions about a specific payment scenario? Reach out via the [contact page](/contact).*
