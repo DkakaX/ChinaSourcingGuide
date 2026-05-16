@@ -1,0 +1,452 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead
+      title="Chinese Supplier Email Writer"
+      description="Generate professional Chinese emails for your suppliers — price inquiries, counter offers, sample requests, complaints, and more. Free tool for foreign buyers."
+    />
+  </head>
+  <body>
+    <Header />
+
+    <main class="tool-main">
+      <div class="tool-header">
+        <h1>Chinese Supplier Email Writer</h1>
+        <p>Select a scenario, fill in the details, and get a ready-to-send Chinese email.</p>
+      </div>
+
+      <div class="tool-body">
+        <!-- Scenario Selector -->
+        <div class="scenario-grid">
+          <button class="scenario-btn active" data-scenario="inquiry">📋 Price Inquiry<span>询价</span></button>
+          <button class="scenario-btn" data-scenario="counter">💰 Counter Offer<span>还价</span></button>
+          <button class="scenario-btn" data-scenario="sample">📦 Sample Request<span>样品申请</span></button>
+          <button class="scenario-btn" data-scenario="followup">🔔 Order Follow-up<span>催货</span></button>
+          <button class="scenario-btn" data-scenario="complaint">⚠️ Quality Complaint<span>质量投诉</span></button>
+          <button class="scenario-btn" data-scenario="reorder">🔁 Reorder<span>重新下单</span></button>
+          <button class="scenario-btn" data-scenario="refund">💸 Refund Request<span>申请退款</span></button>
+          <button class="scenario-btn" data-scenario="documents">📄 Request Documents<span>申请单据</span></button>
+        </div>
+
+        <div class="tool-columns">
+          <!-- Fields -->
+          <div class="fields-panel">
+            <h2 class="panel-title">Fill in the details</h2>
+            <form id="emailForm"></form>
+            <button class="generate-btn" id="generateBtn">Generate Email →</button>
+          </div>
+
+          <!-- Output -->
+          <div class="output-panel">
+            <div class="output-header">
+              <h2 class="panel-title">Your Chinese Email</h2>
+              <button class="copy-btn" id="copyBtn">Copy</button>
+            </div>
+            <div class="output-box" id="outputBox">
+              <span class="placeholder">Fill in the details and click Generate →</span>
+            </div>
+            <p class="output-note">Tip: paste directly into WeChat, Alibaba chat, or your email client.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <Footer />
+  </body>
+</html>
+
+<script>
+  const scenarios = {
+    inquiry: {
+      label: 'Price Inquiry',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. silicone phone case' },
+        { id: 'quantity', label: 'Quantity', placeholder: 'e.g. 500 pieces' },
+        { id: 'specs', label: 'Specifications (optional)', placeholder: 'e.g. size, color, material' },
+      ],
+      template: (f) => `您好，
+
+我是来自${f.origin || '海外'}的买家，想询问关于${f.product}的批发价格。
+
+采购数量：${f.quantity}
+${f.specs ? `规格要求：${f.specs}\n` : ''}
+请问：
+1. 该数量下的单价是多少？
+2. 最小起订量是多少？
+3. 生产周期大概需要多少天？
+4. 支持哪些付款方式？
+
+期待您的回复，谢谢！`,
+    },
+
+    counter: {
+      label: 'Counter Offer',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. canvas tote bag' },
+        { id: 'quantity', label: 'Quantity', placeholder: 'e.g. 300 pieces' },
+        { id: 'quoted', label: 'Their quoted price', placeholder: 'e.g. $3.50/piece' },
+        { id: 'target', label: 'Your target price', placeholder: 'e.g. $2.80/piece' },
+      ],
+      template: (f) => `您好，
+
+感谢您的报价。关于${f.product}（数量：${f.quantity}），您给出的价格是${f.quoted}。
+
+我们已经比较了多家供应商，希望价格能够达到${f.target}。如果价格合适，我们可以立即确认订单并安排付款。
+
+请问这个价格是否可以接受？期待您的回复，谢谢！`,
+    },
+
+    sample: {
+      label: 'Sample Request',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. LED desk lamp' },
+        { id: 'specs', label: 'Color / specs', placeholder: 'e.g. white, 10W, EU plug' },
+        { id: 'address', label: 'Shipping country', placeholder: 'e.g. United States' },
+      ],
+      template: (f) => `您好，
+
+我对贵公司的${f.product}非常感兴趣，希望先订购样品进行质量评估。
+
+样品规格：${f.specs}
+收货地址：${f.address}
+
+请问：
+1. 样品费用是多少？
+2. 快递运费大概是多少？
+3. 样品费是否可以在正式下单时抵扣？
+4. 从发货到收到大概需要几天？
+
+如果样品满意，我们计划正式下单。谢谢！`,
+    },
+
+    followup: {
+      label: 'Order Follow-up',
+      fields: [
+        { id: 'product', label: 'Product / order reference', placeholder: 'e.g. Order #2024-05 / 500 phone cases' },
+        { id: 'date', label: 'Expected delivery date', placeholder: 'e.g. May 30' },
+      ],
+      template: (f) => `您好，
+
+我想跟进一下${f.product}的生产进度。
+
+按照之前的协议，预计交货日期为${f.date}。请问目前生产进展如何？能否提供最新的状态更新？
+
+如有任何延误，请提前告知，以便我们做好相应安排。谢谢！`,
+    },
+
+    complaint: {
+      label: 'Quality Complaint',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. portable charger' },
+        { id: 'orderdate', label: 'Order / delivery date', placeholder: 'e.g. received on May 10' },
+        { id: 'problem', label: 'Problem description', placeholder: 'e.g. 30 units are defective, wrong color' },
+        { id: 'solution', label: 'Desired solution', placeholder: 'e.g. refund / replacement' },
+      ],
+      template: (f) => `您好，
+
+我收到了${f.product}的货物（${f.orderdate}），但发现以下质量问题：
+
+${f.problem}
+
+这与我们订购时确认的规格不符。我们希望得到以下解决方案：${f.solution}。
+
+请您尽快处理此问题，并告知解决方案。如需提供照片或视频证明，请告知。谢谢！`,
+    },
+
+    reorder: {
+      label: 'Reorder',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. silicone phone case' },
+        { id: 'prevorder', label: 'Previous order reference', placeholder: 'e.g. same as order placed in March' },
+        { id: 'quantity', label: 'New quantity', placeholder: 'e.g. 1000 pieces' },
+      ],
+      template: (f) => `您好，
+
+我之前从贵公司订购了${f.product}（${f.prevorder}），产品质量很好，非常满意。
+
+现在我想再次下单：
+数量：${f.quantity}
+规格：与上次相同
+
+请确认：
+1. 价格是否与上次一致？
+2. 生产周期是多久？
+3. 能否优先安排生产？
+
+期待合作，谢谢！`,
+    },
+
+    refund: {
+      label: 'Refund Request',
+      fields: [
+        { id: 'product', label: 'Product name', placeholder: 'e.g. LED desk lamp' },
+        { id: 'amount', label: 'Refund amount', placeholder: 'e.g. $450 (30 defective units)' },
+        { id: 'reason', label: 'Reason', placeholder: 'e.g. items arrived damaged, wrong specs' },
+      ],
+      template: (f) => `您好，
+
+由于以下原因，我需要申请退款：
+
+产品：${f.product}
+退款金额：${f.amount}
+原因：${f.reason}
+
+我们有照片和视频可以证明上述问题。请问如何处理退款？请尽快回复，以便我们尽快解决此问题。谢谢！`,
+    },
+
+    documents: {
+      label: 'Request Documents',
+      fields: [
+        { id: 'orderref', label: 'Order reference', placeholder: 'e.g. Order #2024-08' },
+        { id: 'docs', label: 'Documents needed', placeholder: 'e.g. commercial invoice, packing list, bill of lading' },
+      ],
+      template: (f) => `您好，
+
+请问订单${f.orderref}的以下单据何时可以提供？
+
+所需文件：${f.docs}
+
+我们需要这些文件用于清关，请尽快发送。如有任何问题，请及时告知。谢谢！`,
+    },
+  };
+
+  let currentScenario = 'inquiry';
+
+  function renderFields(scenario) {
+    const form = document.getElementById('emailForm');
+    const config = scenarios[scenario];
+    form.innerHTML = config.fields.map(f => `
+      <div class="field-group">
+        <label for="${f.id}">${f.label}</label>
+        <input type="text" id="${f.id}" name="${f.id}" placeholder="${f.placeholder}" autocomplete="off" />
+      </div>
+    `).join('');
+  }
+
+  function generateEmail() {
+    const config = scenarios[currentScenario];
+    const values = {};
+    config.fields.forEach(f => {
+      const el = document.getElementById(f.id);
+      values[f.id] = el?.value.trim() || `[${f.label}]`;
+    });
+    const email = config.template(values);
+    const box = document.getElementById('outputBox');
+    box.textContent = email;
+    box.classList.add('has-content');
+  }
+
+  document.querySelectorAll('.scenario-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentScenario = btn.dataset.scenario;
+      renderFields(currentScenario);
+      const box = document.getElementById('outputBox');
+      box.textContent = '';
+      box.classList.remove('has-content');
+      box.innerHTML = '<span class="placeholder">Fill in the details and click Generate →</span>';
+    });
+  });
+
+  document.getElementById('generateBtn').addEventListener('click', generateEmail);
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const text = document.getElementById('outputBox').textContent;
+    if (!text || text.includes('Fill in the details')) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = 'Copied!';
+      setTimeout(() => btn.textContent = 'Copy', 2000);
+    });
+  });
+
+  renderFields(currentScenario);
+</script>
+
+<style>
+  .tool-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+  }
+  .tool-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  .tool-header h1 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+  }
+  .tool-header p {
+    color: #64748b;
+    font-size: 1rem;
+  }
+
+  /* Scenario buttons */
+  .scenario-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .scenario-btn {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    text-align: center;
+    transition: all 0.15s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .scenario-btn span {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #94a3b8;
+  }
+  .scenario-btn:hover {
+    border-color: #93c5fd;
+    background: #eff6ff;
+  }
+  .scenario-btn.active {
+    border-color: #1d4ed8;
+    background: #eff6ff;
+    color: #1d4ed8;
+  }
+  .scenario-btn.active span {
+    color: #3b82f6;
+  }
+
+  /* Two columns */
+  .tool-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .panel-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 0 0 1rem;
+  }
+
+  /* Fields */
+  .fields-panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .field-group {
+    margin-bottom: 1rem;
+  }
+  .field-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.35rem;
+  }
+  .field-group input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 0.9rem;
+    color: #1e293b;
+    background: #f9fafb;
+    transition: border-color 0.15s;
+    box-sizing: border-box;
+  }
+  .field-group input:focus {
+    outline: none;
+    border-color: #1d4ed8;
+    background: #fff;
+  }
+  .generate-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    background: #1d4ed8;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .generate-btn:hover { background: #1e40af; }
+
+  /* Output */
+  .output-panel {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  .output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .copy-btn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .copy-btn:hover { background: #e2e8f0; }
+  .output-box {
+    min-height: 280px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #1e293b;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .output-box .placeholder {
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .output-note {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    color: #94a3b8;
+  }
+
+  @media (max-width: 900px) {
+    .scenario-grid { grid-template-columns: repeat(2, 1fr); }
+    .tool-columns { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .scenario-grid { grid-template-columns: repeat(2, 1fr); }
+    .tool-header h1 { font-size: 1.5rem; }
+  }
+</style>
