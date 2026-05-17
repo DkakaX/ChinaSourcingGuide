@@ -5,6 +5,7 @@ import { getCollection } from 'astro:content';
 import AffiliateDisclosure from '../components/AffiliateDisclosure.astro';
 import AuthorBox from '../components/AuthorBox.astro';
 import BaseHead from '../components/BaseHead.astro';
+import EmailCapture from '../components/EmailCapture.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
@@ -37,12 +38,23 @@ const related = allPosts
   .filter(p => p.data.category === category && p.data.title !== title)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: Astro.site },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: new URL('/blog', Astro.site) },
+    { '@type': 'ListItem', position: 3, name: title, item: canonicalURL },
+  ],
+};
 ---
 
 <html lang="en">
   <head>
     <BaseHead title={title} description={description} type="article" />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </head>
   <body>
     <Header />
@@ -80,6 +92,9 @@ const related = allPosts
 
         <!-- Ad placeholder: bottom of article -->
         <!-- <div class="ad-unit ad-bottom" aria-label="Advertisement"></div> -->
+
+        <!-- Email Capture -->
+        <EmailCapture />
 
         <!-- Author Box -->
         <AuthorBox />

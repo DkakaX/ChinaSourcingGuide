@@ -1,0 +1,122 @@
+---
+// To activate: sign up at formspree.io (free), create a form, replace FORMSPREE_ID below
+const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+---
+
+<section class="email-capture">
+  <div class="email-capture-inner">
+    <div class="email-capture-text">
+      <h3>Get New Guides in Your Inbox</h3>
+      <p>Practical sourcing tips, new guides, and supplier strategies — no spam, unsubscribe anytime.</p>
+    </div>
+    <form
+      class="email-form"
+      action={`https://formspree.io/f/${FORMSPREE_ID}`}
+      method="POST"
+      id="emailCaptureForm"
+    >
+      <input type="hidden" name="_subject" value="New subscriber — China Source Hub" />
+      <div class="email-input-row">
+        <input
+          type="email"
+          name="email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+          class="email-input"
+        />
+        <button type="submit" class="email-btn">Subscribe</button>
+      </div>
+      <p class="email-success" id="emailSuccess" style="display:none">
+        ✓ You're subscribed! Check your inbox.
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('emailCaptureForm') as HTMLFormElement;
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    const res = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { Accept: 'application/json' },
+    });
+    if (res.ok) {
+      form.reset();
+      const success = document.getElementById('emailSuccess');
+      if (success) success.style.display = 'block';
+    }
+  });
+</script>
+
+<style>
+  .email-capture {
+    background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+    border-radius: 14px;
+    padding: 2rem 2.5rem;
+    margin: 3rem 0;
+    color: #fff;
+  }
+  .email-capture-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .email-capture-text { flex: 1; min-width: 200px; }
+  .email-capture-text h3 {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 0.4rem;
+  }
+  .email-capture-text p {
+    color: #bfdbfe;
+    font-size: 0.875rem;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .email-form { flex: 1; min-width: 240px; }
+  .email-input-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .email-input {
+    flex: 1;
+    padding: 0.65rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    outline: none;
+    min-width: 0;
+  }
+  .email-input::placeholder { color: rgba(255,255,255,0.5); }
+  .email-input:focus { background: rgba(255,255,255,0.25); }
+  .email-btn {
+    background: #fff;
+    color: #1d4ed8;
+    border: none;
+    border-radius: 8px;
+    padding: 0.65rem 1.25rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .email-btn:hover { opacity: 0.9; }
+  .email-success {
+    color: #bbf7d0;
+    font-size: 0.85rem;
+    margin: 0.5rem 0 0;
+  }
+  @media (max-width: 600px) {
+    .email-capture { padding: 1.5rem; }
+    .email-capture-inner { flex-direction: column; gap: 1rem; }
+    .email-form { width: 100%; }
+  }
+</style>
