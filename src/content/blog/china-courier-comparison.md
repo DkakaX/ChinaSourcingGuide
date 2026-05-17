@@ -1,6 +1,6 @@
 ---
-title: "Shipping from China: DHL vs FedEx vs UPS vs EMS vs SF Express Compared (2025)"
-description: "A practical comparison of every major courier and shipping option from China — speed, cost, reliability, tracking, and which one to use for your order size and destination."
+title: "Shipping from China: International and Domestic Courier Comparison (2025)"
+description: "A practical comparison of every major courier and shipping option from China — DHL, FedEx, UPS, EMS, SF Express, plus China's domestic couriers (顺丰、中通、圆通、韵达 and more)."
 pubDate: 2025-05-22
 category: "Shipping & Logistics"
 tags: ["shipping", "courier", "DHL", "FedEx", "EMS", "logistics", "china sourcing"]
@@ -241,6 +241,100 @@ To make this concrete, here's a 10kg, 0.05 CBM shipment (e.g. 200 phone cases) f
 | Large order, 1–10 CBM | LCL sea freight |
 | Large order, 10+ CBM | FCL sea freight |
 | E-commerce dropshipping, low-value | Economy air (4PX / Yanwen) |
+
+---
+
+## China Domestic Couriers (境内快递)
+
+When your supplier ships goods to a freight forwarder's warehouse, a consolidation center, or anywhere else within China, they use domestic couriers — not DHL or FedEx. Understanding these carriers helps you know what to expect for domestic transit times and costs.
+
+### The "Tongda" Group (通达系) — Volume Leaders
+
+Five carriers dominate China's domestic parcel market and are collectively known as the "Tongda" (通达) group. They handle the vast majority of e-commerce and B2B domestic shipments.
+
+| Carrier | Chinese | Known For |
+|---|---|---|
+| ZTO Express | 中通快递 | Largest volume, reliable nationwide |
+| YTO Express | 圆通速递 | Strong e-commerce integration (Taobao) |
+| STO Express | 申通快递 | Widespread coverage, budget pricing |
+| Yunda Express | 韵达速递 | Competitive pricing, good tracking |
+| Best Express | 百世快递 | Alibaba affiliated, strong in South China |
+
+**Transit time:** 1–3 days within the same province; 2–5 days cross-province  
+**Cost:** ¥5–15 per parcel for standard sizes (weight-based after first kg)  
+**Tracking:** All have real-time tracking via their own apps or the Kuaidi100 aggregator app
+
+These carriers are inexpensive and reliable for domestic China movement. For a foreign buyer, you typically don't choose the carrier — your supplier or sourcing agent does. However, it's useful to know that when your agent says "shipped to our warehouse," the goods are moving via one of these services.
+
+---
+
+### SF Express (顺丰速运) — Domestic Premium
+
+SF Express is China's premium domestic courier, significantly faster and more reliable than the Tongda group — at a higher price.
+
+**Transit time:** Next-day delivery within major cities; 1–2 days nationwide  
+**Cost:** ¥20–40 per parcel (3–5× the cost of Tongda carriers)  
+**Tracking:** Industry-leading real-time tracking, signature confirmation  
+**Coverage:** All of China including rural and remote areas
+
+**When suppliers use SF:** For high-value goods, fragile items, or time-sensitive shipments. If your order contains electronics, jewelry, or anything where fast, reliable domestic transit matters, ask your supplier to ship via 顺丰 (SF Express).
+
+SF also operates temperature-controlled logistics (顺丰冷链) for food and pharmaceutical products.
+
+---
+
+### JD Logistics (京东物流)
+
+JD.com's logistics arm, built for speed. Originally serving only JD's own e-commerce orders, it now serves third-party businesses.
+
+**Transit time:** Same-day or next-day in major cities (211限时达 service)  
+**Cost:** Similar to SF Express  
+**Strength:** Fastest urban delivery in China; own-operated warehouses in 100+ cities  
+**Best for:** Buyers sourcing from JD-listed suppliers or needing fastest possible domestic transit
+
+---
+
+### Cainiao (菜鸟) — Alibaba's Logistics Network
+
+Cainiao is Alibaba's logistics coordination platform rather than a courier itself — it orchestrates deliveries across partner carriers (ZTO, YTO, STO, etc.) and operates its own last-mile delivery in some areas.
+
+**Relevance for foreign buyers:**
+- Alibaba and 1688 orders often ship via Cainiao's network
+- Cainiao Guoji (菜鸟国际) is the international arm handling cross-border e-commerce
+- Tracking via the Cainiao app or Alibaba order pages
+
+---
+
+### Lalamove / GoGo Van (货拉拉 / 快狗打车) — Same-City Freight
+
+For moving goods within the same city — factory to consolidation warehouse, for example — Lalamove (快狗打车) and GoGo Van (货拉拉) are on-demand truck and van services.
+
+Think of them as Uber for freight: book a van or truck in the app, specify pickup and dropoff, driver arrives within 30–60 minutes.
+
+**Cost:** ¥80–300 depending on vehicle size and distance  
+**Use case:** Moving large or fragile items within a city when regular parcel couriers won't handle them
+
+---
+
+### Kuaidi100 (快递100) — Tracking Aggregator
+
+Not a courier itself, but worth knowing: Kuaidi100 is a universal parcel tracking app that aggregates tracking data from all major Chinese domestic couriers. Enter any Chinese tracking number and it shows real-time status regardless of which carrier was used.
+
+Essential if you're monitoring multiple inbound shipments to a consolidation warehouse.
+
+---
+
+## Domestic Courier Comparison at a Glance
+
+| Carrier | Speed | Cost | Best For |
+|---|---|---|---|
+| SF Express (顺丰) | ★★★★★ | ¥¥¥¥ | High-value, time-sensitive, fragile |
+| JD Logistics (京东物流) | ★★★★★ | ¥¥¥¥ | Same/next day in major cities |
+| ZTO (中通) | ★★★ | ¥¥ | Standard B2B, high volume |
+| YTO (圆通) | ★★★ | ¥¥ | E-commerce, Taobao integration |
+| STO (申通) | ★★★ | ¥ | Budget, nationwide coverage |
+| Yunda (韵达) | ★★★ | ¥¥ | Good tracking, competitive price |
+| Lalamove (货拉拉) | ★★★★ | ¥¥¥ | Same-city bulk freight |
 
 ---
 
