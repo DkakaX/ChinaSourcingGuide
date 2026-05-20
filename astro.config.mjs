@@ -8,6 +8,11 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
     site: 'https://www.chinamarketguide.club',
+    redirects: {
+      '/blog/yiwu-market-guide': '/blog/yiwu-market-guide-foreign-buyers',
+      '/blog/canton-fair-guide-foreigners': '/blog/canton-fair-guide',
+      '/blog/china-sourcing-agent-guide': '/blog/how-to-use-a-sourcing-agent',
+    },
     integrations: [
           mdx(),
           sitemap({

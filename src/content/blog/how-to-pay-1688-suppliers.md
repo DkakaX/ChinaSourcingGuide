@@ -47,7 +47,7 @@ This is not a bug — it's the system working as designed for its intended marke
 - **Wegobuy / CSSBuy** — Originally personal shopping services, used by business buyers
 - **Yoybuy** — Another established service
 
-For more detail, see our [complete sourcing agent guide](/blog/china-sourcing-agent-guide).
+For more detail, see our [complete sourcing agent guide](/blog/how-to-use-a-sourcing-agent).
 
 ---
 

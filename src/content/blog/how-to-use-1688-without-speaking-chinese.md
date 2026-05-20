@@ -46,7 +46,7 @@ This is the trickiest part for international buyers. 1688 is designed for Chines
 - **Alipay international** — limited functionality for foreign cards
 - **WeChat Pay** — now accepts some international Visa/Mastercard
 
-For your first few orders, using a sourcing agent is the most practical path. See our guide on [China sourcing agents](/blog/china-sourcing-agent-guide) for details.
+For your first few orders, using a sourcing agent is the most practical path. See our guide on [China sourcing agents](/blog/how-to-use-a-sourcing-agent) for details.
 
 ---
 
@@ -152,7 +152,7 @@ For most international buyers, this is where the sourcing agent step comes in. Y
 *Solution:* Most 1688 suppliers sell domestically only. Use a 1688 sourcing agent or a Yiwu/Guangzhou consolidator who can receive the goods in China and reship to you.
 
 **Problem: Can't figure out the payment system**
-*Solution:* Use a sourcing agent for payment. This is the standard approach for foreign buyers on 1688. See our [sourcing agent guide](/blog/china-sourcing-agent-guide).
+*Solution:* Use a sourcing agent for payment. This is the standard approach for foreign buyers on 1688. See our [sourcing agent guide](/blog/how-to-use-a-sourcing-agent).
 
 **Problem: Product photos look nothing like what arrives**
 *Solution:* Always order samples. Request photos of actual stock (实物图) rather than studio photos. Video calls showing the product are possible and a good sign when a supplier agrees.
