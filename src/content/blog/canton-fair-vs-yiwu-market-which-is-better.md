@@ -73,7 +73,7 @@ Book Canton Fair hotels 3+ months ahead or budget for Foshan accommodation. Ever
 
 ## Related reading
 
-See our detailed [Yiwu market guide for foreign buyers](/blog/yiwu-market-guide-foreign-buyers/), [Canton Fair guide for foreigners](/blog/canton-fair-guide-foreigners/), and [China sourcing trip planning guide](/blog/china-sourcing-trip-planning-guide/).
+See our detailed [Yiwu market guide for foreign buyers](/blog/yiwu-market-guide-foreign-buyers/), [Canton Fair guide](/blog/canton-fair-guide/), and [China sourcing trip planning guide](/blog/china-sourcing-trip-planning-guide/).
 
 Planning a trip and unsure where to go? [Email us](/contact/) with your product category and budget.
 
