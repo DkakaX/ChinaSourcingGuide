@@ -5,6 +5,7 @@ pubDate: 2025-05-16
 category: "Alibaba Guide"
 tags: ["china supplier payment", "wire transfer", "trade assurance", "wise", "payoneer", "1688"]
 featured: false
+affiliates: ["wise", "payoneer"]
 ---
 
 Paying a Chinese factory should be the boring part of sourcing. In practice it is where most new importers either bleed 5-8% in avoidable fees or wire money to a personal account and lose it entirely.

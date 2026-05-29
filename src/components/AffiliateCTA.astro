@@ -1,0 +1,96 @@
+---
+import { AFFILIATES, type AffiliateKey } from '../affiliates';
+
+interface Props {
+  /** Which program from src/affiliates.ts */
+  program: AffiliateKey;
+  /** Optional override of the heading. Defaults to "Recommended: {name}". */
+  heading?: string;
+  /** Optional CTA button label. Defaults to "Visit {name} →". */
+  cta?: string;
+}
+
+const { program, heading, cta } = Astro.props;
+const data = AFFILIATES[program];
+const linked = data.url.trim() !== '' && data.url.trim() !== '#';
+const title = heading ?? `Recommended: ${data.name}`;
+const buttonLabel = cta ?? `Visit ${data.name} →`;
+---
+
+<aside class="aff-cta">
+  <div class="aff-body">
+    <span class="aff-badge">Recommended tool</span>
+    <strong class="aff-title">{title}</strong>
+    <p class="aff-tagline"><slot>{data.tagline}</slot></p>
+  </div>
+  {linked ? (
+    <a
+      class="aff-btn"
+      href={data.url}
+      rel="sponsored nofollow noopener"
+      target="_blank"
+    >{buttonLabel}</a>
+  ) : (
+    <span class="aff-btn aff-btn-disabled" aria-disabled="true">{data.name}</span>
+  )}
+</aside>
+
+<style>
+  .aff-cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
+    border-radius: 14px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    color: #fff;
+  }
+  .aff-body { flex: 1; min-width: 220px; }
+  .aff-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    color: #dbeafe;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    margin-bottom: 0.6rem;
+  }
+  .aff-title {
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+    line-height: 1.35;
+    margin-bottom: 0.35rem;
+  }
+  .aff-tagline {
+    color: #bfdbfe;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .aff-btn {
+    background: #fff;
+    color: #1d4ed8;
+    padding: 0.7rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .aff-btn:hover { opacity: 0.9; }
+  .aff-btn-disabled {
+    opacity: 0.55;
+    cursor: default;
+  }
+  @media (max-width: 540px) {
+    .aff-cta { flex-direction: column; align-items: stretch; text-align: left; }
+    .aff-btn { text-align: center; }
+  }
+</style>

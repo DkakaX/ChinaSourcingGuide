@@ -5,6 +5,7 @@ pubDate: 2025-05-11
 category: "Shipping"
 tags: ["amazon FBA", "FBA shipping", "china to amazon", "freight", "logistics"]
 author: "China Sourcing Guide"
+affiliates: ["freightos"]
 ---
 
 Shipping from a Chinese factory to an Amazon FBA warehouse involves more steps than most new sellers anticipate. Get it right and your inventory lands at Amazon's warehouse ready to sell. Get it wrong and you're dealing with rejected shipments, additional fees, or months of delay.

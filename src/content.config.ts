@@ -16,6 +16,10 @@ const blog = defineCollection({
 			category: z.string().optional(),
 			tags: z.array(z.string()).optional(),
 			featured: z.boolean().optional(),
+			author: z.string().optional(),
+			// Affiliate program keys (see src/affiliates.ts) to surface as
+			// "Recommended tools" CTA cards at the end of the article.
+			affiliates: z.array(z.string()).optional(),
 		}),
 });
 

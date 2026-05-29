@@ -5,6 +5,7 @@ pubDate: 2025-05-22
 category: "Sourcing Tips"
 tags: ["factory audit", "supplier verification", "due diligence", "china sourcing"]
 author: "China Market Guide"
+affiliates: ["qima"]
 ---
 
 Of the four factories I almost ordered from in 2023, two turned out to be trading companies pretending to be factories, and one had three employees in a shared office. A pre-order audit caught all three before I wired money.

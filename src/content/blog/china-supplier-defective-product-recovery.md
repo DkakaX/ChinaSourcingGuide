@@ -5,6 +5,7 @@ pubDate: 2025-05-22
 category: "Sourcing Tips"
 tags: ["defective products", "quality control", "trade assurance dispute", "supplier negotiation", "qc failure"]
 author: "China Market Guide"
+affiliates: ["qima"]
 ---
 
 A 1,200-piece order of phone cases arrived from Shenzhen with 38% defects — wrong color shade on the main body. The supplier's first offer: "Sell them at discount, we'll give you $0.20/unit credit on the next order."
@@ -141,6 +142,8 @@ A 1-2% defect rate isn't worth a dispute — the cost of arguing exceeds the cos
 3. **Specify AQL standard in the PI**: "AQL 2.5 for major defects, AQL 4.0 for minor defects" — gives you contractual basis for inspection acceptance criteria.
 4. **Don't pay the final balance until inspection passes**. "70% balance against passed pre-shipment inspection report" should be in your PI for every order.
 5. **Build a defect-rate history** per supplier. Suppliers with rising defect rates over time are headed for a major failure. Switch before it happens.
+
+The cheapest defective shipment is the one you catch before it ships. Book a third-party pre-shipment inspection on every production order.
 
 ## Related reading
 
