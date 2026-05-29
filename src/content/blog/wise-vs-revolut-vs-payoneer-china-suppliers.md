@@ -5,6 +5,7 @@ pubDate: 2025-05-23
 category: "Alibaba Guide"
 tags: ["wise", "revolut", "payoneer", "supplier payment", "fx", "currency exchange"]
 author: "China Market Guide"
+affiliates: ["wise", "payoneer"]
 ---
 
 I've paid Chinese suppliers via Wise, Revolut, and Payoneer dozens of times each. The marketing pitches all sound the same: "low fees, real exchange rate, fast delivery." The actual experience is different across the three, and the supplier's acceptance behavior is often the deciding factor — not the headline fee.
@@ -57,8 +58,6 @@ The headline winner on cost is Wise. But the right answer depends on three other
 - Some Chinese supplier banks (small regional banks) don't accept Wise's intermediary bank routing — supplier reports "money not received" even though Wise shows delivered, takes days to trace
 - Large single transfers above $20k may be flagged for compliance review
 - Wise will not pay to Chinese personal accounts (only registered company accounts) — actually this is a feature, not a bug, but trips up some buyers
-
-[**→ Open a Wise account here**](#) (referral link)
 
 ## Revolut Business: improving but inconsistent
 

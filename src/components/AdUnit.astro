@@ -1,0 +1,54 @@
+---
+import { ADSENSE_CLIENT } from '../consts';
+
+interface Props {
+  /** The numeric data-ad-slot value from the AdSense dashboard. Empty = nothing renders. */
+  slot?: string;
+  /** AdSense format. 'fluid' for in-article/in-feed, 'auto' for responsive display. */
+  format?: 'auto' | 'fluid';
+  /** Layout key for in-article/in-feed units (e.g. 'in-article'). */
+  layout?: string;
+  /** Optional extra class for spacing control. */
+  class?: string;
+}
+
+const { slot = '', format = 'fluid', layout = 'in-article', class: className = '' } = Astro.props;
+const enabled = slot.trim().length > 0 && ADSENSE_CLIENT.trim().length > 0;
+---
+
+{enabled && (
+  <div class:list={['ad-wrap', className]} aria-label="Advertisement">
+    <span class="ad-label">Advertisement</span>
+    <ins
+      class="adsbygoogle"
+      style="display:block"
+      data-ad-client={ADSENSE_CLIENT}
+      data-ad-slot={slot}
+      data-ad-format={format}
+      data-ad-layout={format === 'fluid' ? layout : undefined}
+      data-full-width-responsive="true"
+    ></ins>
+  </div>
+  <script is:inline>
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+)}
+
+<style>
+  .ad-wrap {
+    margin: 2rem 0;
+    text-align: center;
+  }
+  .ad-label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #94a3b8;
+    margin-bottom: 0.35rem;
+  }
+  .adsbygoogle {
+    display: block;
+    min-height: 90px;
+  }
+</style>

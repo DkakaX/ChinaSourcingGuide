@@ -5,6 +5,7 @@ pubDate: 2025-05-11
 category: "Alibaba"
 tags: ["product inspection", "quality control", "china sourcing", "pre-shipment inspection"]
 author: "China Sourcing Guide"
+affiliates: ["qima"]
 ---
 
 You've placed your first significant order from a Chinese factory. The supplier says everything is ready. Do you just tell them to ship and hope for the best?

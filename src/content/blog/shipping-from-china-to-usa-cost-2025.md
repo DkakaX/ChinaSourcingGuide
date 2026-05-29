@@ -5,6 +5,7 @@ pubDate: 2025-05-16
 category: "Shipping & Logistics"
 tags: ["shipping from china", "freight", "china to usa", "importing", "logistics"]
 featured: true
+affiliates: ["freightos"]
 ---
 
 The single most common question I get from readers is: "How much will it actually cost to ship X from China to the US?" The honest answer is: it depends, but the range is narrower than most sourcing blogs admit.
@@ -89,6 +90,8 @@ Add 5-25% for tariffs depending on HTS code. Add another 3-5% buffer for the sma
 2. "What is your free time at destination before demurrage kicks in?" 4 days is standard, 7 is great, anything under 3 is a trap.
 3. "Who handles customs clearance, you in-house or a third-party broker?" In-house is usually cheaper and faster.
 4. "Can I pay in USD via wire to a US bank account?" Forwarders that only accept payment to a Hong Kong account are higher risk if anything goes wrong.
+
+The fastest way to benchmark a forwarder's quote is to pull an instant online rate first, then ask them to beat it.
 
 ## What changed in 2025
 

@@ -5,6 +5,7 @@ pubDate: 2025-05-22
 category: "Shipping & Logistics"
 tags: ["sea freight", "lcl", "fcl", "shipping from china", "freight forwarder"]
 author: "China Market Guide"
+affiliates: ["freightos"]
 ---
 
 If you're shipping under 15 cubic meters of product from China, your freight forwarder will quote you LCL by default. They're often wrong — past about 12 CBM, a 20-foot container (FCL) is cheaper, faster, and lower-risk than splitting the same cargo across an LCL consolidation.
